@@ -143,7 +143,7 @@ function search(){
 //includesを使う(indexOfではヒットしない)
 function fields_search(field,search){
 
-    let result  = []
+    let result  = [];
 
     for (let data of DATA){
         if ( data["fields"][field].includes(search) ){
@@ -157,7 +157,7 @@ function fields_search(field,search){
 //AND検索用の処理
 function fields_and_search(field,search_list){
 
-    let result  = []
+    let result  = [];
 
     for (let data of DATA){
 
