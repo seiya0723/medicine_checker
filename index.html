@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>医薬品情報</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+
+    <script src="js/custom_data.js"></script>
+    <script src="js/script.js"></script>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+    <header class="bg-primary">
+        <h1><a class="text-white" href="">医薬品情報</a></h1>
+    </header>
+    
+    <form id="search_form" action="" method="GET">
+
+        <input id="name"        class="chkbox" type="checkbox" name="name"        checked><label class="chk_label" for="name">医薬品名    </label>
+        <input id="effect"      class="chkbox" type="checkbox" name="effect"      ><label class="chk_label" for="effect"     >作用と効果  </label>
+        <input id="caution"     class="chkbox" type="checkbox" name="caution"     ><label class="chk_label" for="caution"    >使用上の注意</label>
+        <input id="dosage"      class="chkbox" type="checkbox" name="dosage"      ><label class="chk_label" for="dosage"     >用法・用量  </label>
+        <input id="side_effect" class="chkbox" type="checkbox" name="side_effect" ><label class="chk_label" for="side_effect">副作用      </label>
+
+        <input id="search_text" type="text" name="search" placeholder="医薬品名" value="">
+        <input id="search_button" class="btn btn-primary" type="button" value="検索">
+    </form>
+
+    <input id="search_result_chk" class="search_result_chk" type="checkbox" >
+    <label class="search_result_label" for="search_result_chk">検索結果 <span id="search_result_num" class="search_result_num"></span></label>
+
+    <ul id="search_result" class="search_result">
+    </ul>
+
+
+    <div class="control_area">
+        <div class="control_button_area">
+            <div id="csv_download" class="control_button">
+                <i class="fas fa-file-download"></i>
+            </div>
+            <div class="control_tool_tip_topright">CSVダウンロード</div>
+        </div>
+
+        <div class="control_button_area">
+            <div id="config" class="control_button">
+                <i class="fas fa-cogs"></i>
+            </div>
+            <div class="control_tool_tip_topright">設定</div>
+        </div>
+        
+        <div class="control_button_area">
+            <div id="all_stack" class="control_button control_button_success">
+                <i class="fas fa-clone"></i>
+            </div>
+            <div class="control_tool_tip_topright">検索結果を全てスタック</div>
+        </div>
+
+        <div class="control_button_area">
+            <div id="all_remove" class="control_button control_button_danger">
+                <i class="fas fa-trash-alt"></i>
+            </div>
+            <div class="control_tool_tip_topright">全てリムーブ</div>
+        </div>
+
+    </div>
+
+    <div class="table-responsive">
+        <table class="table">
+            <thead class="thead-dark"> 
+                <tr id="table_name">
+                    <th>比較項目/薬品名</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr id="table_effect"     ><td>作用と効果  </td></tr>
+                <tr id="table_caution"    ><td>使用上の注意</td></tr>
+                <tr id="table_dosage"     ><td>用法・用量  </td></tr>
+                <tr id="table_side_effect"><td>副作用      </td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!--モーダルダイアログ-->
+    <div id="modal" class="modal">
+        <div id="modal_content" class="modal_content">
+
+            <h2 class="bg-secondary text-white p-2">設定</h2>
+
+            <div class="config_body">
+                <div class="config_row">
+                    <div class="config_label">検索の形式(AND検索・OR検索)</div>
+                    <div class="config_button">
+                        <input id="chk_btn_01" class="chk_btn" type="checkbox"><label class="and_or_label" for="chk_btn_01"></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</body>
+</html>
+
